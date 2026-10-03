@@ -19,7 +19,7 @@ def test_derived_columns():
 
 def test_extreme_ages_get_a_band():
     out = add_features(_X(2).assign(Age=[17, 95]))
-    assert list(out["age_band"]) == ["<30", "60+"]
+    assert list(out["age_band"]) == ["under30", "60+"]
 
 
 def test_add_features_does_not_mutate_input():
@@ -34,3 +34,9 @@ def test_preprocessor_ignores_unknown_geography_and_names_features():
     names = list(pre.named_steps["encode"].get_feature_names_out())
     assert out.shape[1] == len(names)
     assert "Geography_France" in names and "Age" in names
+
+
+def test_feature_names_are_xgboost_safe():
+    pre = build_preprocessor().fit(_X(200))
+    names = pre.named_steps["encode"].get_feature_names_out()
+    assert not [n for n in names if any(ch in n for ch in "[]<")]

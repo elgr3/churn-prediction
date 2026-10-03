@@ -1,0 +1,87 @@
+{
+  "dataset": {
+    "n_rows": 10000,
+    "churn_rate": 0.2037
+  },
+  "cv_comparison": {
+    "random_forest": {
+      "f1_mean": 0.6075,
+      "f1_std": 0.029,
+      "auc_mean": 0.8549
+    },
+    "xgboost": {
+      "f1_mean": 0.6025,
+      "f1_std": 0.0176,
+      "auc_mean": 0.8597
+    },
+    "logistic_regression": {
+      "f1_mean": 0.5109,
+      "f1_std": 0.0166,
+      "auc_mean": 0.7839
+    }
+  },
+  "selected_model": "random_forest",
+  "test": {
+    "f1": 0.6326,
+    "accuracy": 0.8455,
+    "auc_roc": 0.8636,
+    "precision": 0.6129,
+    "recall": 0.6536
+  },
+  "xgboost_test": {
+    "f1": 0.6095,
+    "accuracy": 0.8065,
+    "auc_roc": 0.8627,
+    "precision": 0.5171,
+    "recall": 0.742
+  },
+  "top_features": [
+    "Age",
+    "NumOfProducts",
+    "IsActiveMember",
+    "Gender_Female",
+    "Geography_Germany"
+  ],
+  "risk_segments": [
+    {
+      "Geography": "Germany",
+      "age_band": "50-59",
+      "NumOfProducts": 1,
+      "customers": 184,
+      "churn_rate": 0.7772,
+      "lift": 3.82
+    },
+    {
+      "Geography": "France",
+      "age_band": "50-59",
+      "NumOfProducts": 1,
+      "customers": 235,
+      "churn_rate": 0.6085,
+      "lift": 2.99
+    },
+    {
+      "Geography": "Germany",
+      "age_band": "40-49",
+      "NumOfProducts": 1,
+      "customers": 404,
+      "churn_rate": 0.5767,
+      "lift": 2.83
+    },
+    {
+      "Geography": "Spain",
+      "age_band": "50-59",
+      "NumOfProducts": 1,
+      "customers": 118,
+      "churn_rate": 0.4915,
+      "lift": 2.41
+    },
+    {
+      "Geography": "France",
+      "age_band": "40-49",
+      "NumOfProducts": 1,
+      "customers": 661,
+      "churn_rate": 0.3434,
+      "lift": 1.69
+    }
+  ]
+}
